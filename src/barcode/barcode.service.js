@@ -19,3 +19,8 @@ const addCode = async (inputStr) => {
     });
   });
 };
+
+module.exports = {
+  getCodes,
+  addCode,
+};
