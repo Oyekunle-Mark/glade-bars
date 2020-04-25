@@ -10,7 +10,7 @@ const getAllCodes = async (req, res) => {
   }
 };
 
-const addCode = async (req, res) => {
+const addQRCode = async (req, res) => {
   try {
   } catch (err) {
     return res.status(500).json({
@@ -18,4 +18,9 @@ const addCode = async (req, res) => {
       error: `Error creating QRCode: ${err}`,
     });
   }
+};
+
+module.exports = {
+  getAllCodes,
+  addQRCode,
 };
