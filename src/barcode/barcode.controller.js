@@ -2,6 +2,12 @@ const { getCodes, addCode } = require('./barcode.service');
 
 const getAllCodes = async (req, res) => {
   try {
+    const codes = await getCodes();
+
+    return res.status(200).json({
+      statusCode: 200,
+      data: codes,
+    });
   } catch (err) {
     return res.status(500).json({
       statusCode: 500,
