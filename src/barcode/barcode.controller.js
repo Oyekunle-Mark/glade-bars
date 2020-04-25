@@ -18,6 +18,13 @@ const getAllCodes = async (req, res) => {
 
 const addQRCode = async (req, res) => {
   try {
+    const { dataString } = req.body;
+    const code = await addCode(dataString);
+
+    return res.status(201).json({
+      statusCode: 201,
+      data: code,
+    });
   } catch (err) {
     return res.status(500).json({
       statusCode: 500,
