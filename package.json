@@ -5,7 +5,7 @@
   "main": "src",
   "scripts": {
     "start:dev": "nodemon index.js",
-    "start": "forever stopall && forever start index.js",
+    "start": "forever stopall && forever start ./src/index.js",
     "stop": "forever stopall"
   },
   "repository": {
