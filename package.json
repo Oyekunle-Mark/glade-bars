@@ -1,0 +1,23 @@
+{
+  "name": "glade-bars",
+  "version": "1.0.0",
+  "description": "A bar code API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oyekunle-Mark/glade-bars.git"
+  },
+  "keywords": [
+    "bar",
+    "code"
+  ],
+  "author": "Oyekunle Oloyede <oyekunlemac@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Oyekunle-Mark/glade-bars/issues"
+  },
+  "homepage": "https://github.com/Oyekunle-Mark/glade-bars#readme"
+}
