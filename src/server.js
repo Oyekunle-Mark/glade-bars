@@ -10,7 +10,7 @@ server.use(express.json());
 server.use(cors());
 server.use(helmet());
 server.use(compression());
-server.use(logger('dev'));
+server.use(logger('combined'));
 
 server.get('/', (_, res) =>
   res.status(200).json({
