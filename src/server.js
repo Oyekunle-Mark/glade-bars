@@ -15,7 +15,7 @@ server.use(logger('dev'));
 server.get('/', (_, res) =>
   res.status(200).json({
     statusCode: 200,
-    message: 'The Car Owner API is alive and kicking!',
+    message: 'The Bar Code API is alive and kicking!',
   }),
 );
 
