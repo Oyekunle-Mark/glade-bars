@@ -4,23 +4,36 @@ let codeData = require('./barcode.data');
 
 const getCodes = () => Promise.resolve(codeData);
 
-const addCode = async (inputStr) => {
+const addCode = (inputStr) => {
   const newCode = {
     id: v4(),
+    title: inputStr,
   };
 
   return new Promise((resolve, reject) => {
     QRCode.toDataURL(inputStr, (err, url) => {
       if (err) reject(err);
 
-      newCode.codeUrl = url;
+      newCode.code = url;
       codeData = [...codeData, newCode];
-      resolve(newCode);
+      resolve(codeData);
     });
+  });
+};
+
+const deleteCode = (codeId) => {
+  const codeToRemove = codeData.find((code) => code.id === codeId);
+
+  return new Promise((resolve, reject) => {
+    if (!codeToRemove) reject(new Error('No QR Code matches that ID!'));
+
+    codeData = codeData.filter((code) => code.id !== codeId);
+    resolve(codeData);
   });
 };
 
 module.exports = {
   getCodes,
   addCode,
+  deleteCode,
 };
