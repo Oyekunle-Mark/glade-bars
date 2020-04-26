@@ -28,7 +28,7 @@ const deleteCode = (codeId) => {
     if (!codeToRemove) reject(new Error('No QR Code matches that ID!'));
 
     codeData = codeData.filter((code) => code.id !== codeId);
-    resolve(`QR Code ${codeToRemove.id} deleted successfully.`);
+    resolve(codeData);
   });
 };
 

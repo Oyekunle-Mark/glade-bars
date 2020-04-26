@@ -55,11 +55,11 @@ const removeCode = async (req, res) => {
     }
 
     const { id } = req.params;
-    const message = await deleteCode(id);
+    const codes = await deleteCode(id);
 
     return res.status(200).json({
       statusCode: 200,
-      message,
+      data: codes,
     });
   } catch (err) {
     return res.status(404).json({
