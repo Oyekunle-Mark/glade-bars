@@ -35,4 +35,5 @@ const deleteCode = (codeId) => {
 module.exports = {
   getCodes,
   addCode,
+  deleteCode,
 };
