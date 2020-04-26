@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const { getCodes, addCode } = require('./barcode.service');
+const { getCodes, addCode, deleteCode } = require('./barcode.service');
 
 const getAllCodes = async (req, res) => {
   try {
@@ -43,7 +43,25 @@ const addQRCode = async (req, res) => {
   }
 };
 
+const removeCode = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const message = await deleteCode(id);
+
+    return res.status(200).json({
+      statusCode: 200,
+      message,
+    });
+  } catch (err) {
+    return res.status(404).json({
+      statusCode: 404,
+      error: `QR Code not found: ${err}`,
+    });
+  }
+};
+
 module.exports = {
   getAllCodes,
   addQRCode,
+  removeCode,
 };
