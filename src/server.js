@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const logger = require('morgan');
+const barCodeRouter = require('./barcode');
 
 const server = express();
 
@@ -18,6 +19,8 @@ server.get('/', (_, res) =>
     message: 'The Bar Code API is alive and kicking!',
   }),
 );
+
+server.use('/api/v1', barCodeRouter);
 
 server.use('*', (_, res) =>
   res.status(404).json({
