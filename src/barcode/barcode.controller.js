@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const { getCodes, addCode } = require('./barcode.service');
 
 const getAllCodes = async (req, res) => {
@@ -18,6 +19,15 @@ const getAllCodes = async (req, res) => {
 
 const addQRCode = async (req, res) => {
   try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        statusCode: 400,
+        error: errors.array(),
+      });
+    }
+
     const { dataString } = req.body;
     const code = await addCode(dataString);
 
