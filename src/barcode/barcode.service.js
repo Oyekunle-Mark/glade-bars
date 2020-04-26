@@ -16,7 +16,7 @@ const addCode = (inputStr) => {
 
       newCode.code = url;
       codeData = [...codeData, newCode];
-      resolve(newCode);
+      resolve(codeData);
     });
   });
 };
