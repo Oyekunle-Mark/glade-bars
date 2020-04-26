@@ -22,13 +22,13 @@ const addCode = (inputStr) => {
 };
 
 const deleteCode = (codeId) => {
-  const id = codeData.find((code) => code.id === codeId);
+  const codeToRemove = codeData.find((code) => code.id === codeId);
 
   return new Promise((resolve, reject) => {
-    if (id === -1) reject(new Error('No QR Code matches that ID!'));
+    if (!codeToRemove) reject(new Error('No QR Code matches that ID!'));
 
-    codeData = codeData.filter((code) => code.id !== id);
-    resolve(`QR Code ${id} deleted successfully.`);
+    codeData = codeData.filter((code) => code.id !== codeId);
+    resolve(`QR Code ${codeToRemove.id} deleted successfully.`);
   });
 };
 
