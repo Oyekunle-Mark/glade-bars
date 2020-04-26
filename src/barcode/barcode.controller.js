@@ -45,6 +45,15 @@ const addQRCode = async (req, res) => {
 
 const removeCode = async (req, res) => {
   try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        statusCode: 400,
+        error: errors.array(),
+      });
+    }
+
     const { id } = req.params;
     const message = await deleteCode(id);
 
